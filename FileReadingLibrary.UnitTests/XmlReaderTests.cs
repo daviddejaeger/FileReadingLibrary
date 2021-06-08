@@ -1,5 +1,4 @@
-﻿using FileReadingLibrary.Exceptions;
-using System;
+﻿using System;
 using System.IO;
 using System.Xml;
 using Xunit;
@@ -22,10 +21,10 @@ namespace FileReadingLibrary.UnitTests
 
             string contents = xmlFileReader.ReadFile(path);
 
-            Assert.Equal("<?xml version=\"1.0\" encoding=\"utf - 8\" ?><Machines><Machine>PCGC04</Machine></Machines>", contents);
+            Assert.Equal("<Machines>\r\n  <Machine>PCGC04</Machine>\r\n</Machines>", contents);
         }
         [Fact]
-        public void ReadFile_CorrectPathIncorrectXml_ReturnsFormatException()
+        public void ReadFile_IncorrectXml_ReturnsXmlException()
         {
             string path = @"devicesWrongFormat.xml";
 
@@ -42,16 +41,6 @@ namespace FileReadingLibrary.UnitTests
             Action action = () => xmlFileReader.ReadFile(path);
 
             Assert.Throws<FileNotFoundException>(action);
-        }
-
-        [Fact]
-        public void ReadFile_IncorrectFileType_ReturnsInvalidFileTypeException()
-        {
-            string path = @"icon-72x72.png";
-
-            Action action = () => xmlFileReader.ReadFile(path);
-
-            Assert.Throws<InvalidFileTypeException>(action);
         }
     }
   

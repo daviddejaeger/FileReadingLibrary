@@ -1,4 +1,3 @@
-using FileReadingLibrary.Exceptions;
 using System;
 using System.IO;
 using Xunit;
@@ -32,16 +31,6 @@ namespace FileReadingLibrary.UnitTests
             Action action = () => textFileReader.ReadFile(path);
 
             Assert.Throws<FileNotFoundException>(action);
-        }
-
-        [Fact]
-        public void ReadFile_IncorrectFileType_ReturnsInvalidFileTypeException()
-        {
-            string path = @"icon-72x72.png";
-
-            Action action = () => textFileReader.ReadFile(path);
-
-            Assert.Throws<InvalidFileTypeException>(action);
         }
     }
 }
