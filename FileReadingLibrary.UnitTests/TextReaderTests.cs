@@ -5,41 +5,41 @@ using Xunit;
 
 namespace FileReadingLibrary.UnitTests
 {
-    public class FileReaderTests
+    public class TextReaderTests
     {
-        FileReader fileReader;
+        FileReader textFileReader;
 
-        public FileReaderTests()
+        public TextReaderTests()
         {
-            fileReader = new FileReader();
+            textFileReader = new TextFileReader();
         }
 
         [Fact]
-        public void ReadTextFile_CorrectPath_ReturnsFileContents()
+        public void ReadFile_CorrectPath_ReturnsFileContents()
         {
             string path = @"testfile.txt";
 
-            string contents = fileReader.ReadTextFile(path);
+            string contents = textFileReader.ReadFile(path);
 
             Assert.Equal("This is a test file.", contents);
         }
 
         [Fact]
-        public void ReadTextFile_IncorrectPath_ReturnsFileNotFoundException()
+        public void ReadFile_IncorrectPath_ReturnsFileNotFoundException()
         {
             string path = @"wrongfile.txt";
 
-            Action action = () => fileReader.ReadTextFile(path);
+            Action action = () => textFileReader.ReadFile(path);
 
             Assert.Throws<FileNotFoundException>(action);
         }
 
         [Fact]
-        public void ReadTextFile_IncorrectFileType_ReturnsInvalidFileTypeException()
+        public void ReadFile_IncorrectFileType_ReturnsInvalidFileTypeException()
         {
             string path = @"icon-72x72.png";
 
-            Action action = () => fileReader.ReadTextFile(path);
+            Action action = () => textFileReader.ReadFile(path);
 
             Assert.Throws<InvalidFileTypeException>(action);
         }

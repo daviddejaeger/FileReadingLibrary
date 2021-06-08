@@ -14,8 +14,8 @@ namespace FileReadingLibrary.ConsoleClient
 
                 try
                 {
-                    FileReader fileReader = new FileReader();
-                    Console.WriteLine(fileReader.ReadTextFile(path));
+                    FileReader fileReader = new TextFileReader();
+                    Console.WriteLine(fileReader.ReadFile(path));
                     validFileEntered = true;
                 }
                 catch (Exception e)

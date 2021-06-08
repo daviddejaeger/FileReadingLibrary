@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="devices.xml" />
+    <None Remove="devicesWrongFormat.xml" />
     <None Remove="icon-72x72.png" />
     <None Remove="testfile.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="devices.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="devicesWrongFormat.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="icon-72x72.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
