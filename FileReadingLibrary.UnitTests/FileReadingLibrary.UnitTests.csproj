@@ -11,19 +11,27 @@
     <None Remove="devicesWrongFormat.xml" />
     <None Remove="icon-72x72.png" />
     <None Remove="testfile.txt" />
+    <None Remove="testfiles\encryptedTestfile.txt" />
+    <None Remove="testfiles\shiftEncryptedTestfile.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="devices.xml">
+    <Content Include="testfiles\devices.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="devicesWrongFormat.xml">
+    <Content Include="testfiles\devicesWrongFormat.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="icon-72x72.png">
+    <Content Include="testfiles\encryptedTestfile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="testfile.txt">
+    <Content Include="testfiles\icon-72x72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\shiftEncryptedTestfile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\testfile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

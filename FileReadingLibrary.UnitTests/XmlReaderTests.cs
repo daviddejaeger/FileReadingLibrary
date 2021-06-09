@@ -17,7 +17,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_CorrectPath_ReturnsFileContents()
         {
-            string path = @"devices.xml";
+            string path = @"testfiles/devices.xml";
 
             string contents = xmlFileReader.ReadFile(path);
 
@@ -26,7 +26,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_IncorrectXml_ReturnsXmlException()
         {
-            string path = @"devicesWrongFormat.xml";
+            string path = @"testfiles/devicesWrongFormat.xml";
 
             Action action = () => xmlFileReader.ReadFile(path);
 
@@ -36,7 +36,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_IncorrectPath_ReturnsFileNotFoundException()
         {
-            string path = @"wrongfile.xml";
+            string path = @"testfiles/wrongfile.xml";
 
             Action action = () => xmlFileReader.ReadFile(path);
 

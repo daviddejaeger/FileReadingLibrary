@@ -16,7 +16,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_CorrectPath_ReturnsFileContents()
         {
-            string path = @"testfile.txt";
+            string path = @"testfiles/testfile.txt";
 
             string contents = textFileReader.ReadFile(path);
 
@@ -26,7 +26,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_IncorrectPath_ReturnsFileNotFoundException()
         {
-            string path = @"wrongfile.txt";
+            string path = @"testfiles/wrongfile.txt";
 
             Action action = () => textFileReader.ReadFile(path);
 
