@@ -1,4 +1,5 @@
 ﻿using FileReadingLibrary.Enums;
+using FileReadingLibrary.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace FileReadingLibrary
 {
     public static class FileReaderFactory
     {
-        public static FileReader CreateFileReader(FileOptions options)
+        public static FileReader CreateFileReader(FileReaderOptions options)
         {
             FileReader fileReader = null;
 
@@ -26,10 +27,17 @@ namespace FileReadingLibrary
             switch (options.EncryptionMechanism)
             {
                 case EncryptionMechanismEnum.Reverse:
-                    fileReader = new ReverseDecryptor(fileReader);
+                    fileReader = new ReverseEncryptedFileReader(fileReader);
                     break;
                 case EncryptionMechanismEnum.Shift:
-                    fileReader = new ShiftDecryptor(fileReader);
+                    fileReader = new ShiftEncryptedFileReader(fileReader);
+                    break;
+            }
+
+            switch (options.SecurityRole)
+            {
+                case SecurityRoleEnum.User:
+                    fileReader = new FilenameRestrictedFileReader(fileReader);
                     break;
             }
 

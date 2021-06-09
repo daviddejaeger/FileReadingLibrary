@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace FileReadingLibrary
 {
-    public class ReverseDecryptor : Decryptor
+    public class ReverseEncryptedFileReader : EncryptedFileReader
     {
         FileReader fileReader;
-        public ReverseDecryptor(FileReader fileReader)
+        public ReverseEncryptedFileReader(FileReader fileReader)
         {
             this.fileReader = fileReader;
         }

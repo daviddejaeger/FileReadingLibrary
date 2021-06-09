@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileReadingLibrary
 {
-    public abstract class Decryptor : FileReader
+    public abstract class EncryptedFileReader : FileReader
     {
         public abstract string DecryptFileContent(string content);
     }

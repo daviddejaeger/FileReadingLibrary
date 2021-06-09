@@ -13,7 +13,7 @@ namespace FileReadingLibrary.UnitTests
 
         public ReverseDecryptorTests()
         {
-            reverseDecryptorReader = new ReverseDecryptor(new TextFileReader());
+            reverseDecryptorReader = new ReverseEncryptedFileReader(new TextFileReader());
         }
 
         [Fact]

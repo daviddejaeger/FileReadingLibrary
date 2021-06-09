@@ -13,7 +13,7 @@ namespace FileReadingLibrary.UnitTests
 
         public ShiftDecryptorTests()
         {
-            shiftDecryptorReader = new ShiftDecryptor(new TextFileReader());
+            shiftDecryptorReader = new ShiftEncryptedFileReader(new TextFileReader());
         }
 
         [Fact]

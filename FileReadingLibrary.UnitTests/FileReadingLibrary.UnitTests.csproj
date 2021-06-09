@@ -12,6 +12,8 @@
     <None Remove="icon-72x72.png" />
     <None Remove="testfile.txt" />
     <None Remove="testfiles\encryptedTestfile.txt" />
+    <None Remove="testfiles\publictestfile.txt" />
+    <None Remove="testfiles\public_testfile.txt" />
     <None Remove="testfiles\shiftEncryptedTestfile.txt" />
   </ItemGroup>
 
@@ -26,6 +28,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\icon-72x72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\public_testfile.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\shiftEncryptedTestfile.txt">
@@ -51,6 +56,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FileReadingLibrary\FileReadingLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="testfiles\publictestfile.txt" />
   </ItemGroup>
 
 </Project>

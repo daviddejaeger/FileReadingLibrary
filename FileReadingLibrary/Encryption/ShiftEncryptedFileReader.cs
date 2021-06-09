@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FileReadingLibrary
 {
-    public class ShiftDecryptor : Decryptor
+    public class ShiftEncryptedFileReader : EncryptedFileReader
     {
         FileReader fileReader;
-        public ShiftDecryptor(FileReader fileReader)
+        public ShiftEncryptedFileReader(FileReader fileReader)
         {
             this.fileReader = fileReader;
         }
