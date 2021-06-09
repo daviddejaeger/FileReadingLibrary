@@ -11,31 +11,53 @@ namespace FileReadingLibrary.UnitTests
 {
     public class FilenameRestrictedFileReaderTests
     {
-        FileReader filenameRestrictedFileReader;
+        FileReader filenameRestrictedTextFileReader;
+        FileReader filenameRestrictedXmlFileReader;
 
         public FilenameRestrictedFileReaderTests()
         {
-            filenameRestrictedFileReader = new FilenameRestrictedFileReader(new TextFileReader());
+            filenameRestrictedTextFileReader = new FilenameRestrictedFileReader(new TextFileReader());
+            filenameRestrictedXmlFileReader = new FilenameRestrictedFileReader(new XmlFileReader());
         }
 
         [Fact]
-        public void ReadFile_InvalidFilename_ReturnsSecurityException()
+        public void ReadTextFile_InvalidFilename_ReturnsSecurityException()
         {
             string path = @"testfiles/testfile.txt";
 
-            Action action = () => filenameRestrictedFileReader.ReadFile(path);
+            Action action = () => filenameRestrictedTextFileReader.ReadFile(path);
 
             Assert.Throws<SecurityException>(action);
         }
 
         [Fact]
-        public void ReadFile_ValidFilename_ReturnsContents()
+        public void ReadTextFile_ValidFilename_ReturnsContents()
         {
             string path = @"testfiles/public_testfile.txt";
 
-            string contents = filenameRestrictedFileReader.ReadFile(path);
+            string contents = filenameRestrictedTextFileReader.ReadFile(path);
 
             Assert.Equal("Public information!", contents);
+        }
+
+        [Fact]
+        public void ReadXmlFile_InvalidFilename_ReturnsSecurityException()
+        {
+            string path = @"testfiles/devices.xml";
+
+            Action action = () => filenameRestrictedXmlFileReader.ReadFile(path);
+
+            Assert.Throws<SecurityException>(action);
+        }
+
+        [Fact]
+        public void ReadXmlFile_ValidFilename_ReturnsContents()
+        {
+            string path = @"testfiles/public_devices.xml";
+
+            string contents = filenameRestrictedXmlFileReader.ReadFile(path);
+
+            Assert.Equal("<PublicMachines>\r\n  <Machine>PCGC10</Machine>\r\n</PublicMachines>", contents);
         }
     }
 }

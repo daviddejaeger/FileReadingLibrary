@@ -14,6 +14,7 @@
     <None Remove="testfiles\devicesEncrypted.xml" />
     <None Remove="testfiles\encryptedTestfile.txt" />
     <None Remove="testfiles\publictestfile.txt" />
+    <None Remove="testfiles\public_devices.xml" />
     <None Remove="testfiles\public_testfile.txt" />
     <None Remove="testfiles\shiftEncryptedTestfile.txt" />
   </ItemGroup>
@@ -32,6 +33,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\icon-72x72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\public_devices.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\public_testfile.txt">
