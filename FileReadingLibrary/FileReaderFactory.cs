@@ -1,4 +1,5 @@
-﻿using FileReadingLibrary.Enums;
+﻿using FileReadingLibrary.Encryption;
+using FileReadingLibrary.Enums;
 using FileReadingLibrary.Security;
 using System;
 using System.Collections.Generic;
@@ -14,25 +15,51 @@ namespace FileReadingLibrary
         {
             FileReader fileReader = null;
 
-            switch (options.FileType)
+            if (options.FileType == FileTypeEnum.Text)
             {
-                case FileTypeEnum.Text:
+                if (options.EncryptionMechanism == EncryptionMechanismEnum.None)
+                {
                     fileReader = new TextFileReader();
-                    break;
-                case FileTypeEnum.Xml:
-                    fileReader = new XmlFileReader();
-                    break;
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Reverse)
+                {
+                    fileReader = new EncryptedTextFileReader(new ReverseEncryptor());
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Shift)
+                {
+                    fileReader = new EncryptedTextFileReader(new ShiftEncryptor());
+                }
             }
-
-            //switch (options.EncryptionMechanism)
-            //{
-            //    case EncryptionMechanismEnum.Reverse:
-            //        fileReader = new ReverseEncryptedFileReader(fileReader);
-            //        break;
-            //    case EncryptionMechanismEnum.Shift:
-            //        fileReader = new ShiftEncryptedFileReader(fileReader);
-            //        break;
-            //}
+            else if (options.FileType == FileTypeEnum.Xml)
+            {
+                if (options.EncryptionMechanism == EncryptionMechanismEnum.None)
+                {
+                    fileReader = new XmlFileReader();
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Reverse)
+                {
+                    fileReader = new EncryptedXmlFileReader(new ReverseEncryptor());
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Shift)
+                {
+                    fileReader = new EncryptedXmlFileReader(new ShiftEncryptor());
+                }
+            }
+            else if (options.FileType == FileTypeEnum.Json)
+            {
+                if (options.EncryptionMechanism == EncryptionMechanismEnum.None)
+                {
+                    fileReader = new JsonFileReader();
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Reverse)
+                {
+                    fileReader = new EncryptedJsonFileReader(new ReverseEncryptor());
+                }
+                else if (options.EncryptionMechanism == EncryptionMechanismEnum.Shift)
+                {
+                    fileReader = new EncryptedJsonFileReader(new ShiftEncryptor());
+                }
+            }
 
             switch (options.SecurityRole)
             {

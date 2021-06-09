@@ -6,6 +6,6 @@ namespace FileReadingLibrary
     {
         public FileTypeEnum FileType { get; set; } = FileTypeEnum.Text;
         public EncryptionMechanismEnum EncryptionMechanism { get; set; } = EncryptionMechanismEnum.None;
-        public SecurityRoleEnum SecurityRole { get; set; } = SecurityRoleEnum.User;
+        public SecurityRoleEnum SecurityRole { get; set; } = SecurityRoleEnum.None;
     }
 }
