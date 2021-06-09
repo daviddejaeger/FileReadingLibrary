@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileReadingLibrary
+namespace FileReadingLibrary.Encryption
 {
-    public abstract class EncryptedFileReader : FileReader
+    public abstract class Encryptor
     {
         public abstract string DecryptFileContent(string content);
     }

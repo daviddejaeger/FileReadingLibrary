@@ -11,6 +11,7 @@
     <None Remove="devicesWrongFormat.xml" />
     <None Remove="icon-72x72.png" />
     <None Remove="testfile.txt" />
+    <None Remove="testfiles\devicesEncrypted.xml" />
     <None Remove="testfiles\encryptedTestfile.txt" />
     <None Remove="testfiles\publictestfile.txt" />
     <None Remove="testfiles\public_testfile.txt" />
@@ -19,6 +20,9 @@
 
   <ItemGroup>
     <Content Include="testfiles\devices.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\devicesEncrypted.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\devicesWrongFormat.xml">

@@ -8,7 +8,7 @@ namespace FileReadingLibrary
     {
         public override string ReadFile(string filepath)
         {
-             XDocument xmlDocument = XDocument.Load(filepath);
+            XDocument xmlDocument = XDocument.Load(filepath);
             return xmlDocument.ToString();
         }
     }

@@ -4,22 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileReadingLibrary
+namespace FileReadingLibrary.Encryption
 {
-    public class ShiftEncryptedFileReader : EncryptedFileReader
+    public class ShiftEncryptor : Encryptor
     {
-        FileReader fileReader;
-        public ShiftEncryptedFileReader(FileReader fileReader)
-        {
-            this.fileReader = fileReader;
-        }
-
-        public override string ReadFile(string filepath)
-        {
-            string contents = fileReader.ReadFile(filepath);
-            return DecryptFileContent(contents);
-        }
-
         public override string DecryptFileContent(string content)
         {
             char[] charArray = content.ToCharArray();

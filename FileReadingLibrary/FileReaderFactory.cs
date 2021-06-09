@@ -24,15 +24,15 @@ namespace FileReadingLibrary
                     break;
             }
 
-            switch (options.EncryptionMechanism)
-            {
-                case EncryptionMechanismEnum.Reverse:
-                    fileReader = new ReverseEncryptedFileReader(fileReader);
-                    break;
-                case EncryptionMechanismEnum.Shift:
-                    fileReader = new ShiftEncryptedFileReader(fileReader);
-                    break;
-            }
+            //switch (options.EncryptionMechanism)
+            //{
+            //    case EncryptionMechanismEnum.Reverse:
+            //        fileReader = new ReverseEncryptedFileReader(fileReader);
+            //        break;
+            //    case EncryptionMechanismEnum.Shift:
+            //        fileReader = new ShiftEncryptedFileReader(fileReader);
+            //        break;
+            //}
 
             switch (options.SecurityRole)
             {
