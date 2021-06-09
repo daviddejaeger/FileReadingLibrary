@@ -11,6 +11,8 @@
     <None Remove="devicesWrongFormat.xml" />
     <None Remove="icon-72x72.png" />
     <None Remove="testfile.txt" />
+    <None Remove="testfiles\appsettings.Development.json" />
+    <None Remove="testfiles\appsettingswrong.Development.json" />
     <None Remove="testfiles\devicesEncrypted.xml" />
     <None Remove="testfiles\encryptedTestfile.txt" />
     <None Remove="testfiles\publictestfile.txt" />
@@ -20,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="testfiles\appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\appsettingswrong.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="testfiles\devices.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
