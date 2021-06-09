@@ -14,6 +14,7 @@
     <None Remove="testfiles\appsettings.Development.json" />
     <None Remove="testfiles\appsettingswrong.Development.json" />
     <None Remove="testfiles\devicesEncrypted.xml" />
+    <None Remove="testfiles\encryptedAppsettings.json" />
     <None Remove="testfiles\encryptedTestfile.txt" />
     <None Remove="testfiles\publictestfile.txt" />
     <None Remove="testfiles\public_devices.xml" />
@@ -35,6 +36,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\devicesWrongFormat.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testfiles\encryptedAppsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="testfiles\encryptedTestfile.txt">

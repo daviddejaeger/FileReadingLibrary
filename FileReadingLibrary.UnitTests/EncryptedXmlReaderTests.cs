@@ -11,12 +11,10 @@ namespace FileReadingLibrary.UnitTests
     public class EncryptedXmlReaderTests
     {
         FileReader encryptedReverseXmlFileReader;
-        FileReader encryptedShiftXmlFileReader;
 
         public EncryptedXmlReaderTests()
         {
             encryptedReverseXmlFileReader = new EncryptedXmlFileReader(new ReverseEncryptor());
-            encryptedShiftXmlFileReader = new EncryptedXmlFileReader(new ShiftEncryptor());
         }
 
         [Fact]

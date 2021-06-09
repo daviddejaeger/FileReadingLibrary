@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace FileReadingLibrary
 {
-    public class EncryptedXmlFileReader : FileReader
+    public class EncryptedJsonFileReader : FileReader
     {
         private Encryptor encryptor;
-        public EncryptedXmlFileReader(Encryptor encryptor)
+        public EncryptedJsonFileReader(Encryptor encryptor)
         {
             this.encryptor = encryptor;
         }
@@ -20,8 +20,8 @@ namespace FileReadingLibrary
         {
             string encryptedContent = File.ReadAllText(filepath);
             string decryptedContent = encryptor.DecryptFileContent(encryptedContent);
-            XDocument xmlDocument = XDocument.Parse(decryptedContent);
-            return xmlDocument.ToString();
+            JsonDocument xmlDocument = JsonDocument.Parse(decryptedContent);
+            return decryptedContent;
         }
     }
 }
