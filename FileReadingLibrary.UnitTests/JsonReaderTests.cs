@@ -21,7 +21,7 @@ namespace FileReadingLibrary.UnitTests
         [Fact]
         public void ReadFile_CorrectPath_ReturnsFileContents()
         {
-            string path = @"testfiles/appsettings.development.json";
+            string path = @"testfiles/appsettings_ok.development.json";
 
             string contents = jsonFileReader.ReadFile(path);
 

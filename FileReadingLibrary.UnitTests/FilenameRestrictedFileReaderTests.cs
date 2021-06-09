@@ -13,11 +13,13 @@ namespace FileReadingLibrary.UnitTests
     {
         FileReader filenameRestrictedTextFileReader;
         FileReader filenameRestrictedXmlFileReader;
+        FileReader filenameRestrictedJsonFileReader;
 
         public FilenameRestrictedFileReaderTests()
         {
             filenameRestrictedTextFileReader = new FilenameRestrictedFileReader(new TextFileReader());
             filenameRestrictedXmlFileReader = new FilenameRestrictedFileReader(new XmlFileReader());
+            filenameRestrictedJsonFileReader = new FilenameRestrictedFileReader(new JsonFileReader());
         }
 
         [Fact]
@@ -58,6 +60,26 @@ namespace FileReadingLibrary.UnitTests
             string contents = filenameRestrictedXmlFileReader.ReadFile(path);
 
             Assert.Equal("<PublicMachines>\r\n  <Machine>PCGC10</Machine>\r\n</PublicMachines>", contents);
+        }
+
+        [Fact]
+        public void ReadJsonFile_InvalidFilename_ReturnsSecurityException()
+        {
+            string path = @"testfiles/appsettings_ok.Development.json";
+
+            Action action = () => filenameRestrictedJsonFileReader.ReadFile(path);
+
+            Assert.Throws<SecurityException>(action);
+        }
+
+        [Fact]
+        public void ReadJsonFile_ValidFilename_ReturnsContents()
+        {
+            string path = @"testfiles/appsettings_public.Development.json";
+
+            string contents = filenameRestrictedJsonFileReader.ReadFile(path);
+
+            Assert.Equal("{\r\n  \"Logging\": {\r\n    \"LogLevel\": {\r\n      \"Default\": \"Information\",\r\n      \"Microsoft\": \"Information\"\r\n    }\r\n  }\r\n}\r\n", contents);
         }
     }
 }
